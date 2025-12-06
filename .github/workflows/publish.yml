@@ -274,13 +274,14 @@ jobs:
           pattern: dist-*
           path: dist
           merge-multiple: true
-      - uses: pypa/gh-action-pypi-publish@ed0c53931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
+      - uses: pypa/gh-action-pypi-publish@edc953931b1dc9bd32cbe73a98c7f6766f8a527e # v1.13.0
         name: Upload to PyPI
         if: ${{ needs.targets.outputs.upload_to_pypi == 'true' }}
         with:
-          user: __token__
-          password: ${{ secrets.pypi_token }}
-          repository-url: ${{ inputs.repository_url }}
+         user: __token__
+         password: ${{ secrets.pypi_token }}
+         repository-url: ${{ inputs.repository_url }}
+
       - uses: OpenAstronomy/publish-wheels-anaconda@eae491141709933a7636af70b070e4a92d1a45be # v1.0.1
         if: ${{ inputs.upload_to_anaconda }}
         with:
